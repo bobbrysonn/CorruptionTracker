@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Corruption Tracker{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="{% static "website/css/bootstrap.min.css" %}" rel="stylesheet"> 
+  {% block extra_css %}{% endblock %}
+</head>
+<body style='font-family: Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";'>
+  <nav class="border-bottom border-body navbar navbar-expand-lg">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item mx-4">
+            <a class="nav-link {% if '/' in request.path %}active{% endif %}" href="{% url "corruption" %}">CORRUPTION</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link {% if 'kenyas-loans/' in request.path %}active{% endif %}" href="{% url "kenyas_loans" %}">KENYA'S LOANS</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link {% if 'land-grabbing/' in request.path %}active{% endif %}" href="{% url "land_grabbing" %}">LAND GRABBING</a> 
+          </li> 
+          <li class="nav-item mx-4">
+            <a class="nav-link {% if 'stalled-projects/' in request.path %}active{% endif %}" href="{% url "stalled_projects" %}">STALLED PROJECTS</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% block content %}{% endblock %}
+  <script src="{% static "website/js/bootstrap.bundle.min.js" %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends "website/base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <main class="container mt-4">
+    <h1 class="display-5 text-center">CORRUPTION</h1>
+    
+    <!-- Card list of corruption cases -->
+    <section>
+      <p>Reported cases since Aug 28th, 2024</p>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="{% static "website/images/banner.jpg" %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">1 Nov 2022</h5>
+              <p class="card-text">Someone else stole a lot of money which we cannot find</p>
+            </div>
+            <div class="card-footer text-body-secondary">
+               Amount: KES. 5,000,000, 000 (Billions)
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="{% static "website/images/banner.jpg" %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">1 Nov 2022</h5>
+              <p class="card-text">Someone else stole a lot of money which we cannot find</p>
+            </div>
+            <div class="card-footer text-body-secondary">
+               Amount: KES. 5,000,000, 000 (Billions)
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="{% static "website/images/banner.jpg" %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">1 Nov 2022</h5>
+              <p class="card-text">Someone else stole a lot of money which we cannot find</p>
+            </div>
+            <div class="card-footer text-body-secondary">
+               Amount: KES. 5,000,000, 000 (Billions)
+            </div>
+          </div>
+        </div>
+     </div>
+    </section>
+  </main>
+{% endblock %}
