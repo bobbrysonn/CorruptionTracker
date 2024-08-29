@@ -1,16 +1,21 @@
 #!/bin/sh
 
+echo ""
+echo "********************************"
 echo "Collect static files (part 1)..."
+echo "********************************"
 python manage.py collectstatic --noinput
 
-echo "Compress files..."
-python manage.py compress --force
-
-echo "Collect static files (part 2)..."
-python manage.py collectstatic --noinput
-
+echo ""
+echo "********************************"
 echo "Migrate database..."
+echo "********************************"
+echo ""
 python manage.py migrate
 
+echo ""
+echo "********************************"
 echo "Start gunicorn..."
-gunicorn project.wsgi --config="gunicorn.conf.py"
+echo "********************************"
+echo ""
+gunicorn corruption_tracker.wsgi --config="gunicorn.conf.py"
