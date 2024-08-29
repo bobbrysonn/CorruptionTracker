@@ -12,8 +12,8 @@ asgiref = "^3.8.1"
 Django = "^5.1"
 sqlparse = "^0.5.1"
 gunicorn = "^23.0.0"
-django-compressor = "^4.5.1"
 whitenoise = "^6.7.0"
+
 [tool.poe.tasks]
 r = "./manage.py runserver 0:8000"
 m = "./manage.py"
