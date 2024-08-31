@@ -1,8 +1,12 @@
 from django.shortcuts import render
+from .models import CorruptionStory
 
 # Create your views here.
 def corruption(request):
-    return render(request, "website/corruption.html")
+    # Get all corruption stories
+    corruption_stories = CorruptionStory.objects.all()
+
+    return render(request, "website/corruption.html", {"corruption_stories": corruption_stories})
 
 
 def kenyas_loans(request):

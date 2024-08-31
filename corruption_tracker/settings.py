@@ -45,7 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'website', 'static', 'website', 'images')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

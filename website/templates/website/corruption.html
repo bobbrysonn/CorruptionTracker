@@ -1,49 +1,32 @@
-{% extends "website/base.html" %}
-
-{% load static %}
+{% extends "website/base.html" %} 
+{% load humanize %}
+{% load static %} 
 
 {% block content %}
-  <main class="container mt-4">
-    <!-- Card list of corruption cases -->
-    <section>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card h-100">
-            <img src="{% static "website/images/banner.jpg" %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">1 Nov 2022</h5>
-              <p class="card-text">Someone else stole a lot of money which we cannot find</p>
-            </div>
-            <div class="card-footer text-body-secondary">
-               Amount: KES. 5,000,000, 000 (Billions)
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="{% static "website/images/banner.jpg" %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">1 Nov 2022</h5>
-              <p class="card-text">Someone else stole a lot of money which we cannot find</p>
-            </div>
-            <div class="card-footer text-body-secondary">
-               Amount: KES. 5,000,000, 000 (Billions)
+<main class="container mt-4">
+  <!-- Card list of corruption cases -->
+  <section>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for story in corruption_stories %}
+      <div class="col">
+        <div class="card h-100">
+          <img src="{% static 'website/images' %}{{ story.banner.url }}" class="card-img-top" alt="Corruption image" height="300" width="275">
+          <div class="card-body">
+            <h5 class="card-title">{{ story.headline }}</h5>
+            <p class="card-text">
+              {{ story.content|truncatewords:20 }}
+            </p>
+            <div class="align-items-center d-flex justify-content-between">
+              <p class="card-text fw-bold text-danger mb-0">
+                KES {{ story.amount|intword }}
+              </p>
+              <a href="#" class="btn btn-light">Read more</a>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="{% static "website/images/banner.jpg" %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">1 Nov 2022</h5>
-              <p class="card-text">Someone else stole a lot of money which we cannot find</p>
-            </div>
-            <div class="card-footer text-body-secondary">
-               Amount: KES. 5,000,000, 000 (Billions)
-            </div>
-          </div>
-        </div>
-     </div>
-    </section>
-  </main>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</main>
 {% endblock %}
