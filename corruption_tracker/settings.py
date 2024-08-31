@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "corruption-tracker.apps.corruptionkenya.org",
     "corruptionkenya.org",
+    "127.0.0.1"
 ]
 
 # Application definition
