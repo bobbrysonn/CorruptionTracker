@@ -20,7 +20,7 @@
               <p class="card-text fw-bold text-danger mb-0">
                 KES {{ story.amount|intword }}
               </p>
-              <a href="#" class="btn btn-light">Read more</a>
+              <a href="{% url "corruption_detail" story.id %}" class="btn btn-light">Read more</a>
             </div>
           </div>
         </div>

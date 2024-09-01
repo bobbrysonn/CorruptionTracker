@@ -9,6 +9,12 @@ def corruption(request):
     return render(request, "website/corruption.html", {"corruption_stories": corruption_stories})
 
 
+def corruption_detail(request, id):
+    corruption_story = CorruptionStory.objects.get(pk=id)
+
+    return render(request, "website/corruption_detail.html", { "corruption_story" : corruption_story })
+
+
 def kenyas_loans(request):
     return render(request, "website/kenyas_loans.html")
 

@@ -1,0 +1,17 @@
+{% extends "website/base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <main class="container mt-4">
+    <h5 class="text-center text-secondary mb-4">CORRUPTION</h5>
+    <h1 class="display-5">{{ corruption_story.headline }}</h1>
+    <div class="text-center mt-5">
+        <img alt="Corruption story banner" src="{% static 'website/images' %}{{ corruption_story.banner.url }}" />
+    </div>
+    
+    <section>
+        {{ corruption_story.content }}
+    </section>
+    </main>
+{% endblock %}

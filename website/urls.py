@@ -6,6 +6,9 @@ urlpatterns = [
     # ex /
     path("", views.corruption, name="corruption"),
 
+    # ex /corruption/0
+    path("corruption/<int:id>/", views.corruption_detail, name="corruption_detail"),
+
     # ex /kenyas_loans/
     path("kenyas-loans/", views.kenyas_loans, name="kenyas_loans"),
 
