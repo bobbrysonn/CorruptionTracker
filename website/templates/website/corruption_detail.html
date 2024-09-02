@@ -1,5 +1,6 @@
 {% extends "website/base.html" %}
 
+{% load humanize %}
 {% load static %}
 
 {% block content %}
@@ -18,11 +19,18 @@
         </section>
 
         <section class="row" style="font-family: 'Source Serif 4', Inter, serif; font-size: 20px ">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                {{ corruption_story.content|linebreaks }}
+            <div class="col-lg-2 col-xl-2"></div>
+            <div class="col-lg-8 col-xl-7">
+                <div class="d-flex justify-content-between mb-4">
+                    <p><small class="text-secondary text-sm">Published: {{ corruption_story.date_created }}</small></p>
+                    <p><small class="text-secondary">Category: <a class="text-reset" href="{% url 'corruption' %}">Corruption</a></small></p>
+                </div>
+                <h4 class="fw-bold text-center text-danger text-decoration-underline mb-3">KES {{ corruption_story.amount|intword }}</h4>
+                {% autoescape off %}
+                    {{ corruption_story.content|linebreaks }}
+                {% endautoescape %}
             </div>
-            <div class="col-md-3"></div>
+            <div class="col-lg-2 col-xl-3"></div>
         </section>
     </main>
 {% endblock %}
