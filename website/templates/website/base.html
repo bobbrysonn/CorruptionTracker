@@ -5,12 +5,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=”robots” content="index, follow">
+    <meta name="author" content="Concerned Citizen">
+    <meta name="keywords" content="corruption,kenya,stealing,looting,public funds,government,land grabbing,loans,IMF,projects,stalled">
     <title>{% block title %}Corruption Tracker{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    {% block extra_meta %}{% endblock %}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+          rel="stylesheet">
     <link href="{% static "website/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'website/images' %}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'website/images' %}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'website/images' %}/favicon-16x16.png">
+    <link rel="manifest" href="{% static 'website/images' %}/site.webmanifest">
     {% block extra_css %}{% endblock %}
 </head>
 <body style='font-family: Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";'>
@@ -47,16 +57,39 @@
         </div>
     </div>
 </nav>
-{% block content %}{% endblock %}
+<div class="min-vh-100">
+    {% block content %}{% endblock %}
+</div>
+<footer class="container border-top text-secondary mt-5">
+    <div class="align-content-center d-flex justify-content-between mt-3 mb-3">
+        <div class="flex align-content-center">
+            <p class="mb-0">&copy;2024 Corruption Kenya, Inc</p>
+        </div>
+        <div class="text-center">
+            <a class="navbar-brand" href="{% url "corruption" %}">
+                <img alt="Kenyan flag" height="50" width="60" src="{% static "website/images/brand.png" %}"/>
+            </a>
+        </div>
+        <nav class="nav d-none d-lg-flex">
+            <a class="nav-link" href="{% url 'kenyas_loans' %}">Loans</a>
+            <a class="nav-link" href="{% url 'land_grabbing' %}">Land</a>
+            <a class="nav-link" href="{% url 'stalled_projects' %}">Projects</a>
+        </nav>
+    </div>
+</footer>
 <script src="{% static "website/js/bootstrap.bundle.min.js" %}"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y8HEJTPPM2"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-Y8HEJTPPM2');
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-Y8HEJTPPM2');
 </script>
 {% block extra_js %}{% endblock %}
 </body>

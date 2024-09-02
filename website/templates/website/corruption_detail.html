@@ -3,6 +3,14 @@
 {% load humanize %}
 {% load static %}
 
+{% block title %}
+    {{ corruption_story.headline }}
+{% endblock %}
+
+{% block extra_meta %}
+    <meta name="description" content="{{ corruption_story.content|truncatewords:20|slice:"-4" }}" />
+{% endblock %}
+
 {% block content %}
     <main class="container mt-4 px-4 px-md-0">
         <h5 class="text-center text-secondary mb-4">CORRUPTION</h5>
