@@ -16,7 +16,7 @@
   <!-- Card list of corruption cases -->
   <section>
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-      {% for story in corruption_stories %}
+      {% for story in page_obj.object_list %}
       <div class="col">
         <div class="card h-100">
           <img src="{% static 'website/images' %}{{ story.banner.url }}" class="card-img-top" alt="Corruption image" height="300" width="275">
@@ -38,4 +38,26 @@
     </div>
   </section>
 </main>
+{% endblock %}
+
+{% block pagination %}
+  <nav>
+  <ul class="pagination justify-content-center">
+      {% if page_obj.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+      {% endif %}
+
+      {% for page_number in page_obj.paginator.page_range %}
+        {% if page_number == page_obj.number %}
+          <li class="page-item active"><a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a></li>
+        {% else %}
+          <li class="page-item"><a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a></li>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+      {% endif %}
+  </ul>
+  </nav>
 {% endblock %}

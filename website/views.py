@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from .models import CorruptionStory
 
@@ -6,7 +7,11 @@ def corruption(request):
     # Get all corruption stories
     corruption_stories = CorruptionStory.objects.all()
 
-    return render(request, "website/corruption.html", {"corruption_stories": corruption_stories})
+    paginator = Paginator(corruption_stories, 9)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, "website/corruption.html", { "page_obj": page_obj })
 
 
 def corruption_detail(request, id):
