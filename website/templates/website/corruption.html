@@ -22,6 +22,7 @@
           <img src="{% static 'website/images' %}{{ story.banner.url }}" class="card-img-top" alt="Corruption image" height="300" width="275">
           <div class="card-body">
             <h5 class="card-title">{{ story.headline }}</h5>
+            <h6 class="card-subtitle mb-2 mt-1 text-muted">{{ story.date_occured|date:"F j, Y" }}</h6>
             <p class="card-text">
               {{ story.content|truncatewords:20 }}
             </p>
