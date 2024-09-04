@@ -4,7 +4,7 @@ from django.urls import reverse, path
 # Create your models here.
 class CorruptionStory(models.Model):
     class Meta:
-        ordering = ["-date_created"]
+        ordering = ["-date_occured"]
 
     amount = models.IntegerField(help_text="Enter amount")
     banner = models.ImageField(help_text="Upload the banner image")
